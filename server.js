@@ -1,6 +1,6 @@
 const app = require('./app')
 const initializeDatabase = require('./db')
-const HOST = '0.0.0.0'
+const HOST = process.env.HOST || localhost
 const PORT = process.env.PORT || 5000
 
 initializeDatabase()

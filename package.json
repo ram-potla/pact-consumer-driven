@@ -8,8 +8,8 @@
     "format": "prettier --write \"**/*.+(js|jsx|json|css|md)\"",
     "lint": "eslint .",
     "test": "jest --i",
-    "test:consumer": "npx jest --i",
-    "test:pact": "npx jest --i --testMatch \"**/*.spec.js\""
+    "test:consumer": "npx jest --i consumer/test/consumerPact.spec.js",
+    "test:pact": "npx jest --i provider/engineer/providerPact.spec.js"
   },
   "author": "",
   "license": "ISC",
