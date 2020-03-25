@@ -1,0 +1,32 @@
+{
+  "consumer": {
+    "name": "Client"
+  },
+  "provider": {
+    "name": "EngineerService"
+  },
+  "interactions": [
+    {
+      "description": "a request to retrieve engineers list",
+      "providerState": "engineers list",
+      "request": {
+        "method": "GET",
+        "path": "/engineers"
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        },
+        "body": {
+          "name": "Ram",
+          "practice": "Test"
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "2.0.0"
+    }
+  }
+}
