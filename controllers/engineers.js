@@ -3,11 +3,13 @@ const Engineer = require('../models/engineers')
 
 exports.create = async (req, res) => {
   var newEngineer = new Engineer(req.body)
-  console.log(req.body)
   try {
     const engineerPost = await newEngineer.save()
-    console.log(engineerPost)
-    res.json(engineerPost)
+    const obj = engineerPost._doc
+    delete obj.__v
+    obj.id = obj._id
+    delete obj._id
+    res.json(obj).status(201)
   } catch (err) {
     res.json({ message: err })
   }
@@ -16,7 +18,11 @@ exports.create = async (req, res) => {
 exports.list = async (req, res) => {
   try {
     const engineers = await Engineer.find({})
-    res.json(engineers)
+    const updatedengineers = engineers.map(array => {
+      const docs = array._doc
+    })
+    console.log(updatedengineers)
+    res.json(engineers).status(200)
   } catch (err) {
     res.json({ message: err })
   }

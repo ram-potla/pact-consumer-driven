@@ -8,7 +8,7 @@ const opts = {
   port: parseInt(process.env.CLIENT_PORT),
   log: path.resolve(__dirname, '../../logs'),
   loglevel: 'ERROR',
-  dir: path.resolve(__dirname, '../../pacts'),
+  dir: path.resolve(__dirname, '../pacts'),
   spec: 2
 }
 

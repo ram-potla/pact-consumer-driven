@@ -2,16 +2,25 @@
 
 ## api test setup
 
-``` bash
+```bash
 # install dependencies
 $ npm i or yarn
 
-# start api server
-$ npm start
+# Before running the tests pull mongo docker image
+# docker compose has some issues until resolve use the following commands to run mongo  instance in local computer.
+  $ docker pull mongo
+# Build mongo container
+  $ docker run -d -p 27017-27017:27017-27017 --name ddmongodb mongo
+ Note: make sure same container is not running already in your compuer.
+  Some helpful commands:
+   1. docker ps -a
+   2. docker rm <containername> to remove existing conainter
+   3. docker exec -it mongodb  bash  (then type mongo to excute commands in mongo contianer.)
+# consumer driven test
+$ npm run test:consumer
 
-# run tests
-# .
-$ npm t
+# pact tests
+$ npm run test:pact
 ```
 
 Environment Variables
@@ -19,6 +28,6 @@ Environment variables that control the operation of the app are defined in the .
 
 Environment variables maintained in the .env file are made available to the application code via process.env.<variable-name>.
 
-Environment Variable	Description	Example Setting
+Environment Variable Description Example Setting
 HOST
 PORT

@@ -25,6 +25,15 @@
       // "program": "${workspaceFolder}/app.js"
       "program": "${workspaceRoot}/e2e/node_modules/.bin/cucumber-js",
       "cwd": "${workspaceRoot}/e2e",
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "nodeserver",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/server.js",
+      // "program": "${workspaceRoot}/e2e/node_",
+      "cwd": "${workspaceRoot}",
     }
   ]
 }

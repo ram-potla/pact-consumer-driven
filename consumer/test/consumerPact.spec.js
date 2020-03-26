@@ -1,7 +1,7 @@
 require('dotenv').config()
 const request = require('supertest')
-const provider = require('../consumer/expectation/provider')
-const interactions = require('../consumer/expectation/interactions')
+const provider = require('../expectation/provider')
+const interactions = require('../expectation/interactions')
 
 const serverAddress = `http://localhost:${process.env.CLIENT_PORT}`
 const consumerClient = request(serverAddress)
@@ -22,14 +22,10 @@ describe('api testing', () => {
 
   test('get all engineers', async () => {
     await provider.addInteraction(interactions.getEngineersList)
-
     const res = await consumerClient.get('/engineers')
-    // eslint-disable-next-line no-console
-    console.log('actual res', res.text)
     expect(JSON.parse(res.text)).toEqual({
       name: 'Ram',
       practice: 'Test'
     })
-    // return await provider.verify()
   })
 })

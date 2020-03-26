@@ -17,7 +17,3 @@ initializeDatabase()
     console.log(err)
     process.exit(1)
   })
-
-// app.listen(PORT, () => {
-//   console.log(`app listening on port http://${HOST}:${PORT}`)
-// })

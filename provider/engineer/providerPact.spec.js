@@ -2,14 +2,21 @@
 require('dotenv').config
 const { Verifier } = require('@pact-foundation/pact')
 const path = require('path')
-require('../../server')
-
+const app = require('../../app')
+const server = require('../../server.js')
 describe('Pact Verification', () => {
+  beforeAll(async () => {})
+
+  afterAll(async () => {
+    console.log('hi server')
+    server.close()
+    app.close()
+  })
+
   it('validates the expectations of EngineerService', async () => {
     let opts = {
       logLevel: 'INFO',
       providerBaseUrl: 'http://localhost:5000/engineers',
-      // providerStatesSetup: 'http://localhost:5000/engineers/getengineer',
       provider: 'EngineerService',
       providerVersion: '1.0.0',
       pactUrls: [
@@ -17,18 +24,8 @@ describe('Pact Verification', () => {
       ]
     }
 
-    // return new Verifier(opts).verifyProvider().finally(() => {
-    //   // server.close()
-    //   // eslint-disable-next-line no-console
-    //   console.log('done...')
-    // })
-    return new Verifier().verifyProvider(opts).then(output => {
-      console.log('Pact Verification Complete!')
-      console.log(output)
+    await new Verifier(opts).verifyProvider().finally(() => {
+      console.log('done')
     })
-    // await new Verifier(opts).verifyProvider().finally(() => {
-    //   // process.exit()
-    //   console.log('done')
-    // })
   })
 })
