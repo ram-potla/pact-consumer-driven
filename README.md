@@ -7,7 +7,7 @@
 $ npm i or yarn
 
 # Before running the tests pull mongo docker image
-# docker compose has some issues until resolve use the following commands to run mongo  instance in local computer.
+# docker compose has some issues until this resolved, use the following commands to run mongodb instance in local computer.
   $ docker pull mongo
 # Build mongo container
   $ docker run -d -p 27017-27017:27017-27017 --name ddmongodb mongo
@@ -16,10 +16,10 @@ $ npm i or yarn
    1. docker ps -a
    2. docker rm <containername> to remove existing conainter
    3. docker exec -it mongodb  bash  (then type mongo to excute commands in mongo contianer.)
-# consumer driven test
+# To run consumer driven test
 $ npm run test:consumer
 
-# pact tests
+# To validate pact file agianst provider
 $ npm run test:pact
 ```
 

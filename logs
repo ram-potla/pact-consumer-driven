@@ -1,25 +1,28 @@
-I, [2020-03-26T09:38:41.221400 #48053]  INFO -- : Registered expected interaction GET /engineers
-D, [2020-03-26T09:38:41.221652 #48053] DEBUG -- : {
+I, [2020-03-27T14:52:57.318168 #59572]  INFO -- : Registered expected interaction GET /engineers/getengineer
+D, [2020-03-27T14:52:57.318385 #59572] DEBUG -- : {
   "description": "a request to retrieve engineers list",
   "providerState": "engineers list",
   "request": {
     "method": "GET",
-    "path": "/engineers"
+    "path": "/engineers/getengineer"
   },
   "response": {
     "status": 200,
     "headers": {
     },
-    "body": {
-      "name": "Ram",
-      "practice": "Test"
-    }
+    "body": [
+      {
+        "name": "Ram",
+        "practice": "Test",
+        "id": "5e7d3b15f54ff15a30d98503"
+      }
+    ]
   },
   "metadata": null
 }
-I, [2020-03-26T09:38:41.228335 #48053]  INFO -- : Received request GET /engineers
-D, [2020-03-26T09:38:41.228462 #48053] DEBUG -- : {
-  "path": "/engineers",
+I, [2020-03-27T14:52:57.324625 #59572]  INFO -- : Received request GET /engineers/getengineer
+D, [2020-03-27T14:52:57.324725 #59572] DEBUG -- : {
+  "path": "/engineers/getengineer",
   "query": "",
   "method": "get",
   "headers": {
@@ -30,16 +33,19 @@ D, [2020-03-26T09:38:41.228462 #48053] DEBUG -- : {
     "Version": "HTTP/1.1"
   }
 }
-I, [2020-03-26T09:38:41.228710 #48053]  INFO -- : Found matching response for GET /engineers
-D, [2020-03-26T09:38:41.228787 #48053] DEBUG -- : {
+I, [2020-03-27T14:52:57.324945 #59572]  INFO -- : Found matching response for GET /engineers/getengineer
+D, [2020-03-27T14:52:57.325013 #59572] DEBUG -- : {
   "status": 200,
   "headers": {
   },
-  "body": {
-    "name": "Ram",
-    "practice": "Test"
-  }
+  "body": [
+    {
+      "name": "Ram",
+      "practice": "Test",
+      "id": "5e7d3b15f54ff15a30d98503"
+    }
+  ]
 }
-I, [2020-03-26T09:38:41.235888 #48053]  INFO -- : Verifying - interactions matched
-I, [2020-03-26T09:38:41.239238 #48053]  INFO -- : Cleared interactions
-I, [2020-03-26T09:38:41.243511 #48053]  INFO -- : Writing pact for EngineerService to /Users/ram/practice/pact-example/consumer-driven/consumer/pacts/client-engineerservice.json
+I, [2020-03-27T14:52:57.331204 #59572]  INFO -- : Verifying - interactions matched
+I, [2020-03-27T14:52:57.334206 #59572]  INFO -- : Cleared interactions
+I, [2020-03-27T14:52:57.338330 #59572]  INFO -- : Writing pact for EngineerService to /Users/ram/practice/pact-example/consumer-driven/consumer/pacts/client-engineerservice.json

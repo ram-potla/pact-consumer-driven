@@ -1,4 +1,3 @@
-const path = require('path')
 const Engineer = require('../models/engineers')
 
 exports.create = async (req, res) => {
@@ -18,9 +17,14 @@ exports.create = async (req, res) => {
 exports.list = async (req, res) => {
   try {
     const engineers = await Engineer.find({})
-    const updatedengineers = engineers.map(array => {
-      const docs = array._doc
+    const updatedengineers = engineers.map(engineer => {
+      const updatedengineer = engineer._doc
+      delete updatedengineer.__v
+      updatedengineer.id = engineer._id
+      delete updatedengineer._id
+      return updatedengineer
     })
+
     console.log(updatedengineers)
     res.json(engineers).status(200)
   } catch (err) {

@@ -4,7 +4,8 @@ const provider = require('../expectation/provider')
 const interactions = require('../expectation/interactions')
 
 const serverAddress = `http://localhost:${process.env.CLIENT_PORT}`
-const consumerClient = request(serverAddress)
+const baseUrl = '/engineers'
+const consumerClient = request(`${serverAddress}${baseUrl}`)
 
 describe('api testing', () => {
   jest.setTimeout(60000)
@@ -22,10 +23,13 @@ describe('api testing', () => {
 
   test('get all engineers', async () => {
     await provider.addInteraction(interactions.getEngineersList)
-    const res = await consumerClient.get('/engineers')
-    expect(JSON.parse(res.text)).toEqual({
-      name: 'Ram',
-      practice: 'Test'
-    })
+    const res = await consumerClient.get('/getengineer')
+    expect(JSON.parse(res.text)).toEqual([
+      {
+        name: 'Ram',
+        practice: 'Test',
+        id: '5e7d3b15f54ff15a30d98503'
+      }
+    ])
   })
 })
