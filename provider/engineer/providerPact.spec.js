@@ -2,13 +2,14 @@
 require('dotenv').config
 const { Verifier } = require('@pact-foundation/pact')
 const path = require('path')
-const app = require('../../app')
+
 require('../../server.js')
 describe('Pact Verification', () => {
   beforeAll(async () => {})
 
   afterAll(async () => {
     console.log('hi server')
+    // server.close()
   })
 
   it('validates the expectations of EngineerService', async () => {
@@ -23,6 +24,7 @@ describe('Pact Verification', () => {
     }
 
     await new Verifier(opts).verifyProvider().finally(() => {
+      // eslint-disable-next-line no-console
       console.log('done')
     })
   })

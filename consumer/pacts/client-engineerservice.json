@@ -11,11 +11,15 @@
       "providerState": "engineers list",
       "request": {
         "method": "GET",
-        "path": "/engineers/getengineer"
+        "path": "/engineers/getengineer",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        }
       },
       "response": {
         "status": 200,
         "headers": {
+          "Content-Type": "application/json; charset=utf-8"
         },
         "body": [
           {
@@ -25,11 +29,33 @@
           }
         ]
       }
+    },
+    {
+      "description": "a request to post a engineer",
+      "providerState": "add a engineer",
+      "request": {
+        "method": "POST",
+        "path": "/engineers/addengineer",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "name": "New Engineer",
+          "practice": "Dev",
+          "id": "5e7d9d375c280c68668de229"
+        }
+      }
     }
   ],
   "metadata": {
     "pactSpecification": {
-      "version": "2.0.0"
+      "version": "3.0.0"
     }
   }
 }

@@ -1,14 +1,18 @@
-I, [2020-03-27T14:52:57.318168 #59572]  INFO -- : Registered expected interaction GET /engineers/getengineer
-D, [2020-03-27T14:52:57.318385 #59572] DEBUG -- : {
+I, [2020-03-30T13:25:31.889707 #45744]  INFO -- : Registered expected interaction GET /engineers/getengineer
+D, [2020-03-30T13:25:31.890317 #45744] DEBUG -- : {
   "description": "a request to retrieve engineers list",
   "providerState": "engineers list",
   "request": {
     "method": "GET",
-    "path": "/engineers/getengineer"
+    "path": "/engineers/getengineer",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    }
   },
   "response": {
     "status": 200,
     "headers": {
+      "Content-Type": "application/json; charset=utf-8"
     },
     "body": [
       {
@@ -20,12 +24,13 @@ D, [2020-03-27T14:52:57.318385 #59572] DEBUG -- : {
   },
   "metadata": null
 }
-I, [2020-03-27T14:52:57.324625 #59572]  INFO -- : Received request GET /engineers/getengineer
-D, [2020-03-27T14:52:57.324725 #59572] DEBUG -- : {
+I, [2020-03-30T13:25:31.897700 #45744]  INFO -- : Received request GET /engineers/getengineer
+D, [2020-03-30T13:25:31.897803 #45744] DEBUG -- : {
   "path": "/engineers/getengineer",
   "query": "",
   "method": "get",
   "headers": {
+    "Content-Type": "application/json; charset=utf-8",
     "Host": "localhost:5001",
     "Accept-Encoding": "gzip, deflate",
     "User-Agent": "node-superagent/3.8.3",
@@ -33,10 +38,11 @@ D, [2020-03-27T14:52:57.324725 #59572] DEBUG -- : {
     "Version": "HTTP/1.1"
   }
 }
-I, [2020-03-27T14:52:57.324945 #59572]  INFO -- : Found matching response for GET /engineers/getengineer
-D, [2020-03-27T14:52:57.325013 #59572] DEBUG -- : {
+I, [2020-03-30T13:25:31.898077 #45744]  INFO -- : Found matching response for GET /engineers/getengineer
+D, [2020-03-30T13:25:31.898187 #45744] DEBUG -- : {
   "status": 200,
   "headers": {
+    "Content-Type": "application/json; charset=utf-8"
   },
   "body": [
     {
@@ -46,6 +52,63 @@ D, [2020-03-27T14:52:57.325013 #59572] DEBUG -- : {
     }
   ]
 }
-I, [2020-03-27T14:52:57.331204 #59572]  INFO -- : Verifying - interactions matched
-I, [2020-03-27T14:52:57.334206 #59572]  INFO -- : Cleared interactions
-I, [2020-03-27T14:52:57.338330 #59572]  INFO -- : Writing pact for EngineerService to /Users/ram/practice/pact-example/consumer-driven/consumer/pacts/client-engineerservice.json
+I, [2020-03-30T13:25:31.905388 #45744]  INFO -- : Verifying - interactions matched
+I, [2020-03-30T13:25:31.909169 #45744]  INFO -- : Cleared interactions
+I, [2020-03-30T13:25:31.914011 #45744]  INFO -- : Registered expected interaction POST /engineers/addengineer
+D, [2020-03-30T13:25:31.914156 #45744] DEBUG -- : {
+  "description": "a request to post a engineer",
+  "providerState": "add a engineer",
+  "request": {
+    "method": "POST",
+    "path": "/engineers/addengineer",
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": {
+      "name": "New Engineer",
+      "practice": "Dev",
+      "id": "5e7d9d375c280c68668de229"
+    }
+  },
+  "metadata": null
+}
+I, [2020-03-30T13:25:31.918575 #45744]  INFO -- : Received request POST /engineers/addengineer
+D, [2020-03-30T13:25:31.918696 #45744] DEBUG -- : {
+  "path": "/engineers/addengineer",
+  "query": "",
+  "method": "post",
+  "body": {
+    "name": "New Engineer",
+    "practice": "Dev"
+  },
+  "headers": {
+    "Content-Length": "40",
+    "Content-Type": "application/json; charset=utf-8",
+    "Host": "localhost:5001",
+    "Accept-Encoding": "gzip, deflate",
+    "User-Agent": "node-superagent/3.8.3",
+    "Connection": "close",
+    "Version": "HTTP/1.1"
+  }
+}
+I, [2020-03-30T13:25:31.918816 #45744]  INFO -- : Found matching response for POST /engineers/addengineer
+D, [2020-03-30T13:25:31.918876 #45744] DEBUG -- : {
+  "status": 201,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8"
+  },
+  "body": {
+    "name": "New Engineer",
+    "practice": "Dev",
+    "id": "5e7d9d375c280c68668de229"
+  }
+}
+I, [2020-03-30T13:25:31.922932 #45744]  INFO -- : Verifying - interactions matched
+I, [2020-03-30T13:25:31.926429 #45744]  INFO -- : Cleared interactions
+I, [2020-03-30T13:25:31.930779 #45744]  INFO -- : Writing pact for EngineerService to /Users/ram/practice/pact-example/consumer-driven/consumer/pacts/client-engineerservice.json
