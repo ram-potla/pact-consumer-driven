@@ -29,6 +29,12 @@
           }
         ],
         "matchingRules": {
+          "$.body[0].name": {
+            "match": "type"
+          },
+          "$.body[0].practice": {
+            "match": "type"
+          },
           "$.body[0].id": {
             "match": "regex",
             "regex": "^[0-9a-fA-F]+$"
@@ -61,6 +67,12 @@
           "id": "5e82a81d8ffec3918330b305"
         },
         "matchingRules": {
+          "$.body.name": {
+            "match": "type"
+          },
+          "$.body.practice": {
+            "match": "type"
+          },
           "$.body.id": {
             "match": "regex",
             "regex": "^[0-9a-fA-F]+$"

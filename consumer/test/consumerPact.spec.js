@@ -12,7 +12,8 @@ describe('api testing', () => {
   jest.setTimeout(60000)
   beforeAll(async () => {
     await provider.setup()
-    // await mongoose.connect(process.env.MONGO_DB_URL)
+    const url = process.env.MONGO_DB_URL
+    await mongoose.connect(url, { useNewUrlParser: true })
   })
 
   afterAll(async () => {

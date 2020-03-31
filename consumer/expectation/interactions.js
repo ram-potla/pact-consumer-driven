@@ -1,11 +1,11 @@
 'use strict'
-const { Pact, Matchers } = require('@pact-foundation/pact')
+const { Matchers } = require('@pact-foundation/pact')
 const { eachLike, like, term, hexadecimal } = Matchers
 const baseUrl = '/engineers'
 const ENGINEERS_GET_BODY = [
   {
-    name: 'Ram',
-    practice: 'Test',
+    name: like('Ram'),
+    practice: like('Test'),
     id: hexadecimal('5e8280694c55aa3b3263fe9a')
   }
 ]
@@ -15,8 +15,8 @@ const ENGINEER_POST_PAYLOAD = {
   practice: 'Dev'
 }
 const ENGINEER_RES_PAYLOAD = {
-  name: 'New Engineer',
-  practice: 'Dev',
+  name: like('New Engineer'),
+  practice: like('Dev'),
   id: hexadecimal('5e82a81d8ffec3918330b305')
 }
 
