@@ -12,6 +12,9 @@ function connect(url) {
   return mongoose.connect(url, options).then(client => client.connect)
 }
 
+function execute(query) {
+  dbs.exe
+}
 module.exports = async () => {
   let dbs = await connect(url)
   return dbs

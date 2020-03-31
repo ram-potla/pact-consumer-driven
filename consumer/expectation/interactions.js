@@ -1,18 +1,23 @@
 'use strict'
-const { somethingLike: like, eachLike, term } = require('pact').Matchers
+const { Pact, Matchers } = require('@pact-foundation/pact')
+const { eachLike, like, term, hexadecimal } = Matchers
 const baseUrl = '/engineers'
-const ENGINEERS_BODY = [
+const ENGINEERS_GET_BODY = [
   {
     name: 'Ram',
     practice: 'Test',
-    id: '5e7d3b15f54ff15a30d98503'
+    id: hexadecimal('5e8280694c55aa3b3263fe9a')
   }
 ]
 
-const ENGINEER_PAYLOAD = {
+const ENGINEER_POST_PAYLOAD = {
+  name: 'New Engineer',
+  practice: 'Dev'
+}
+const ENGINEER_RES_PAYLOAD = {
   name: 'New Engineer',
   practice: 'Dev',
-  id: '5e7d9d375c280c68668de229'
+  id: hexadecimal('5e82a81d8ffec3918330b305')
 }
 
 module.exports = {
@@ -28,7 +33,7 @@ module.exports = {
     },
     willRespondWith: {
       status: 200,
-      body: ENGINEERS_BODY,
+      body: ENGINEERS_GET_BODY,
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       }
@@ -42,11 +47,12 @@ module.exports = {
       path: `${baseUrl}/addengineer`,
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
-      }
+      },
+      body: ENGINEER_POST_PAYLOAD
     },
     willRespondWith: {
       status: 201,
-      body: ENGINEER_PAYLOAD,
+      body: ENGINEER_RES_PAYLOAD,
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       }

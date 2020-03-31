@@ -9,7 +9,7 @@ const opts = {
   log: path.resolve(__dirname, '../../logs'),
   loglevel: 'ERROR',
   dir: path.resolve(__dirname, '../pacts'),
-  spec: 3.0
+  spec: 2.0
 }
 
 const provider = new Pact(opts)

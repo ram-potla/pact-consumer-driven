@@ -1,5 +1,5 @@
-I, [2020-03-30T13:25:31.889707 #45744]  INFO -- : Registered expected interaction GET /engineers/getengineer
-D, [2020-03-30T13:25:31.890317 #45744] DEBUG -- : {
+I, [2020-03-31T14:01:36.146943 #49127]  INFO -- : Registered expected interaction GET /engineers/getengineer
+D, [2020-03-31T14:01:36.147192 #49127] DEBUG -- : {
   "description": "a request to retrieve engineers list",
   "providerState": "engineers list",
   "request": {
@@ -18,14 +18,24 @@ D, [2020-03-30T13:25:31.890317 #45744] DEBUG -- : {
       {
         "name": "Ram",
         "practice": "Test",
-        "id": "5e7d3b15f54ff15a30d98503"
+        "id": {
+          "json_class": "Pact::Term",
+          "data": {
+            "generate": "5e8280694c55aa3b3263fe9a",
+            "matcher": {
+              "json_class": "Regexp",
+              "o": 0,
+              "s": "^[0-9a-fA-F]+$"
+            }
+          }
+        }
       }
     ]
   },
   "metadata": null
 }
-I, [2020-03-30T13:25:31.897700 #45744]  INFO -- : Received request GET /engineers/getengineer
-D, [2020-03-30T13:25:31.897803 #45744] DEBUG -- : {
+I, [2020-03-31T14:01:36.153500 #49127]  INFO -- : Received request GET /engineers/getengineer
+D, [2020-03-31T14:01:36.153615 #49127] DEBUG -- : {
   "path": "/engineers/getengineer",
   "query": "",
   "method": "get",
@@ -38,8 +48,8 @@ D, [2020-03-30T13:25:31.897803 #45744] DEBUG -- : {
     "Version": "HTTP/1.1"
   }
 }
-I, [2020-03-30T13:25:31.898077 #45744]  INFO -- : Found matching response for GET /engineers/getengineer
-D, [2020-03-30T13:25:31.898187 #45744] DEBUG -- : {
+I, [2020-03-31T14:01:36.153848 #49127]  INFO -- : Found matching response for GET /engineers/getengineer
+D, [2020-03-31T14:01:36.153949 #49127] DEBUG -- : {
   "status": 200,
   "headers": {
     "Content-Type": "application/json; charset=utf-8"
@@ -48,14 +58,24 @@ D, [2020-03-30T13:25:31.898187 #45744] DEBUG -- : {
     {
       "name": "Ram",
       "practice": "Test",
-      "id": "5e7d3b15f54ff15a30d98503"
+      "id": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "5e8280694c55aa3b3263fe9a",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^[0-9a-fA-F]+$"
+          }
+        }
+      }
     }
   ]
 }
-I, [2020-03-30T13:25:31.905388 #45744]  INFO -- : Verifying - interactions matched
-I, [2020-03-30T13:25:31.909169 #45744]  INFO -- : Cleared interactions
-I, [2020-03-30T13:25:31.914011 #45744]  INFO -- : Registered expected interaction POST /engineers/addengineer
-D, [2020-03-30T13:25:31.914156 #45744] DEBUG -- : {
+I, [2020-03-31T14:01:36.160484 #49127]  INFO -- : Verifying - interactions matched
+I, [2020-03-31T14:01:36.163947 #49127]  INFO -- : Cleared interactions
+I, [2020-03-31T14:01:36.168877 #49127]  INFO -- : Registered expected interaction POST /engineers/addengineer
+D, [2020-03-31T14:01:36.169028 #49127] DEBUG -- : {
   "description": "a request to post a engineer",
   "providerState": "add a engineer",
   "request": {
@@ -63,6 +83,10 @@ D, [2020-03-30T13:25:31.914156 #45744] DEBUG -- : {
     "path": "/engineers/addengineer",
     "headers": {
       "Content-Type": "application/json; charset=utf-8"
+    },
+    "body": {
+      "name": "New Engineer",
+      "practice": "Dev"
     }
   },
   "response": {
@@ -73,13 +97,23 @@ D, [2020-03-30T13:25:31.914156 #45744] DEBUG -- : {
     "body": {
       "name": "New Engineer",
       "practice": "Dev",
-      "id": "5e7d9d375c280c68668de229"
+      "id": {
+        "json_class": "Pact::Term",
+        "data": {
+          "generate": "5e82a81d8ffec3918330b305",
+          "matcher": {
+            "json_class": "Regexp",
+            "o": 0,
+            "s": "^[0-9a-fA-F]+$"
+          }
+        }
+      }
     }
   },
   "metadata": null
 }
-I, [2020-03-30T13:25:31.918575 #45744]  INFO -- : Received request POST /engineers/addengineer
-D, [2020-03-30T13:25:31.918696 #45744] DEBUG -- : {
+I, [2020-03-31T14:01:36.173080 #49127]  INFO -- : Received request POST /engineers/addengineer
+D, [2020-03-31T14:01:36.173206 #49127] DEBUG -- : {
   "path": "/engineers/addengineer",
   "query": "",
   "method": "post",
@@ -97,8 +131,8 @@ D, [2020-03-30T13:25:31.918696 #45744] DEBUG -- : {
     "Version": "HTTP/1.1"
   }
 }
-I, [2020-03-30T13:25:31.918816 #45744]  INFO -- : Found matching response for POST /engineers/addengineer
-D, [2020-03-30T13:25:31.918876 #45744] DEBUG -- : {
+I, [2020-03-31T14:01:36.173392 #49127]  INFO -- : Found matching response for POST /engineers/addengineer
+D, [2020-03-31T14:01:36.173498 #49127] DEBUG -- : {
   "status": 201,
   "headers": {
     "Content-Type": "application/json; charset=utf-8"
@@ -106,9 +140,19 @@ D, [2020-03-30T13:25:31.918876 #45744] DEBUG -- : {
   "body": {
     "name": "New Engineer",
     "practice": "Dev",
-    "id": "5e7d9d375c280c68668de229"
+    "id": {
+      "json_class": "Pact::Term",
+      "data": {
+        "generate": "5e82a81d8ffec3918330b305",
+        "matcher": {
+          "json_class": "Regexp",
+          "o": 0,
+          "s": "^[0-9a-fA-F]+$"
+        }
+      }
+    }
   }
 }
-I, [2020-03-30T13:25:31.922932 #45744]  INFO -- : Verifying - interactions matched
-I, [2020-03-30T13:25:31.926429 #45744]  INFO -- : Cleared interactions
-I, [2020-03-30T13:25:31.930779 #45744]  INFO -- : Writing pact for EngineerService to /Users/ram/practice/pact-example/consumer-driven/consumer/pacts/client-engineerservice.json
+I, [2020-03-31T14:01:36.177172 #49127]  INFO -- : Verifying - interactions matched
+I, [2020-03-31T14:01:36.180264 #49127]  INFO -- : Cleared interactions
+I, [2020-03-31T14:01:36.183980 #49127]  INFO -- : Writing pact for EngineerService to /Users/ram/practice/pact-example/consumer-driven/consumer/pacts/client-engineerservice.json
