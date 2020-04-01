@@ -2,7 +2,6 @@ require('dotenv').config()
 const request = require('supertest')
 const provider = require('../expectation/provider')
 const interactions = require('../expectation/interactions')
-const mongoose = require('mongoose')
 
 const serverAddress = `http://localhost:${process.env.CLIENT_PORT}`
 const baseUrl = '/engineers'
@@ -12,8 +11,6 @@ describe('api testing', () => {
   jest.setTimeout(60000)
   beforeAll(async () => {
     await provider.setup()
-    const url = process.env.MONGO_DB_URL
-    await mongoose.connect(url, { useNewUrlParser: true })
   })
 
   afterAll(async () => {
@@ -26,15 +23,6 @@ describe('api testing', () => {
 
   test('get all engineers', async () => {
     await provider.addInteraction(interactions.getEngineersList)
-    // const payload = {
-    //   name: 'Ram',
-    //   practice: 'Test'
-    // }
-    // await consumerClient
-    //   .post(`${baseUrl}/addengineer`)
-    //   .set('Content-Type', 'application/json; charset=utf-8')
-    //   .send(payload)
-    //   .expect(201)
     const res = await consumerClient
       .get(`${baseUrl}/getengineer`)
       .set('Content-Type', 'application/json; charset=utf-8')

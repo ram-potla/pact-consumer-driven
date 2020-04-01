@@ -2,10 +2,18 @@
 require('dotenv').config
 const { Verifier } = require('@pact-foundation/pact')
 const path = require('path')
+const database = require('../dbhelper')
 
 require('../../server.js')
 describe('Pact Verification', () => {
-  beforeAll(async () => {})
+  beforeAll(async () => {
+    await database.deleteAllCollection()
+    const document = { name: 'Ram', practice: 'Test' }
+    await database.insertDocument(document)
+  })
+  afterEach(async () => {
+    await database.deleteAllCollection()
+  })
 
   afterAll(async () => {
     console.log('hi server')
