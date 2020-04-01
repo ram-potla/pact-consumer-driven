@@ -5,13 +5,12 @@
   "provider": {
     "name": "EngineerService"
   },
-  "interactions": [
-    {
+  "interactions": [{
       "description": "a request to retrieve engineers list",
       "providerState": "engineers list",
       "request": {
         "method": "GET",
-        "path": "/engineers/getengineer",
+        "path": "/engineers",
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         }
@@ -21,13 +20,11 @@
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         },
-        "body": [
-          {
-            "name": "Ram",
-            "practice": "Test",
-            "id": "5e8280694c55aa3b3263fe9a"
-          }
-        ],
+        "body": [{
+          "name": "Ram",
+          "practice": "Test",
+          "id": "5e8280694c55aa3b3263fe9a"
+        }],
         "matchingRules": {
           "$.body[0].name": {
             "match": "type"
@@ -47,7 +44,7 @@
       "providerState": "add a engineer",
       "request": {
         "method": "POST",
-        "path": "/engineers/addengineer",
+        "path": "/engineers",
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         },
@@ -57,7 +54,7 @@
         }
       },
       "response": {
-        "status": 201,
+        "status": 200,
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         },

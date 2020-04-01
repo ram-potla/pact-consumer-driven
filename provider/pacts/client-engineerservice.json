@@ -10,7 +10,7 @@
       "providerState": "engineers list",
       "request": {
         "method": "GET",
-        "path": "/engineers/getengineer",
+        "path": "/engineers",
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         }
@@ -44,7 +44,7 @@
       "providerState": "add a engineer",
       "request": {
         "method": "POST",
-        "path": "/engineers/addengineer",
+        "path": "/engineers",
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         },
@@ -54,7 +54,7 @@
         }
       },
       "response": {
-        "status": 200,
+        "status": 201,
         "headers": {
           "Content-Type": "application/json; charset=utf-8"
         },

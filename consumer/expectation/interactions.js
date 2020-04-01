@@ -26,7 +26,7 @@ module.exports = {
     uponReceiving: 'a request to retrieve engineers list',
     withRequest: {
       method: 'GET',
-      path: `${baseUrl}/getengineer`,
+      path: `${baseUrl}`,
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       }
@@ -44,7 +44,7 @@ module.exports = {
     uponReceiving: 'a request to post a engineer',
     withRequest: {
       method: 'POST',
-      path: `${baseUrl}/addengineer`,
+      path: `${baseUrl}`,
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       },

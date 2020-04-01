@@ -11,14 +11,9 @@ describe('Pact Verification', () => {
     const document = { name: 'Ram', practice: 'Test' }
     await database.insertDocument(document)
   })
-  afterEach(async () => {
-    await database.deleteAllCollection()
-  })
+  afterEach(async () => await database.deleteAllCollection())
 
-  afterAll(async () => {
-    console.log('hi server')
-    // server.close()
-  })
+  afterAll(async () => {})
 
   it('validates the expectations of EngineerService', async () => {
     let opts = {

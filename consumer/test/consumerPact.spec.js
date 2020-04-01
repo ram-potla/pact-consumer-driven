@@ -24,7 +24,7 @@ describe('api testing', () => {
   test('get all engineers', async () => {
     await provider.addInteraction(interactions.getEngineersList)
     const res = await consumerClient
-      .get(`${baseUrl}/getengineer`)
+      .get(`${baseUrl}`)
       .set('Content-Type', 'application/json; charset=utf-8')
     expect(JSON.parse(res.text)).toEqual([
       {
@@ -41,7 +41,7 @@ describe('api testing', () => {
       practice: 'Dev'
     }
     const res = await consumerClient
-      .post(`${baseUrl}/addengineer`)
+      .post(`${baseUrl}`)
       .set('Content-Type', 'application/json; charset=utf-8')
       .send(payload)
       .expect(201)
