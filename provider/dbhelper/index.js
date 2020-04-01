@@ -9,7 +9,7 @@ async function connect() {
   return dbclient.db('engineer').collection('engineers')
 }
 
-async function deleteAllCollection() {
+async function deleteAllCollections() {
   const engineerColl = await connect()
   return engineerColl.deleteMany({})
 }
@@ -20,6 +20,6 @@ async function insertDocument(doc) {
 }
 
 module.exports = {
-  deleteAllCollection,
+  deleteAllCollections,
   insertDocument
 }

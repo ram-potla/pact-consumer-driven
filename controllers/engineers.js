@@ -9,7 +9,8 @@ exports.create = async (req, res) => {
     obj.id = obj._id
     delete obj._id
     res.set('Content-Type', 'application/json; charset=utf-8')
-    res.json(obj).status(201)
+    res.status(201)
+    res.json(obj)
   } catch (err) {
     res.json({ message: err })
   }
@@ -26,7 +27,6 @@ exports.list = async (req, res) => {
       return updatedengineer
     })
 
-    console.log(updatedengineers)
     res.set('Content-Type', 'application/json; charset=utf-8')
     res.json(engineers).status(200)
   } catch (err) {

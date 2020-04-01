@@ -7,7 +7,7 @@ const database = require('../dbhelper')
 require('../../server.js')
 describe('Pact Verification', () => {
   beforeAll(async () => {
-    await database.deleteAllCollection()
+    await database.deleteAllCollections()
     const document = { name: 'Ram', practice: 'Test' }
     await database.insertDocument(document)
   })
