@@ -11,7 +11,7 @@ describe('Pact Verification', () => {
     const document = { name: 'Ram', practice: 'Test' }
     await database.insertDocument(document)
   })
-  afterEach(async () => await database.deleteAllCollection())
+  afterEach(async () => await database.deleteAllCollections())
 
   afterAll(async () => {})
 

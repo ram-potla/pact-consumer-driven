@@ -1,8 +1,8 @@
 'use strict'
+require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient
-require('dotenv').config
-const url = 'ddmongodb://127.0.0.1:27017/engineer'
-console.log('connection string' + url)
+// const url = 'ddmongodb://127.0.0.1:27017/engineer'
+const url = process.env.MONGO_DB_URL
 
 async function connect() {
   const dbclient = await MongoClient.connect(url, { poolSize: 2 })
