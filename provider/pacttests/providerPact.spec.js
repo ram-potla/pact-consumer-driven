@@ -8,7 +8,7 @@ require('../../server.js')
 describe('Pact Verification', () => {
   beforeAll(async () => {
     await database.deleteAllCollections()
-    const document = { name: 'Ram', practice: 'Test' }
+    const document = { name: 'New engineer', practice: 'Design' }
     await database.insertDocument(document)
   })
   afterEach(async () => await database.deleteAllCollections())
@@ -25,10 +25,11 @@ describe('Pact Verification', () => {
         path.resolve(__dirname, '../pacts/client-engineerservice.json')
       ]
     }
-
-    await new Verifier(opts).verifyProvider().finally(() => {
-      // eslint-disable-next-line no-console
-      console.log('done')
-    })
+    try {
+      await new Verifier(opts).verifyProvider()
+    } catch (error) {
+      console.log('failed', error)
+      // process.exit(1)
+    }
   })
 })

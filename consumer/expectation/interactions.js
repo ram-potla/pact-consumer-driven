@@ -28,7 +28,7 @@ module.exports = {
       method: 'GET',
       path: `${baseUrl}`,
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
+        'Content-Type': 'application/json'
       }
     },
     willRespondWith: {
@@ -46,7 +46,7 @@ module.exports = {
       method: 'POST',
       path: `${baseUrl}`,
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
+        'Content-Type': 'application/json'
       },
       body: ENGINEER_POST_PAYLOAD
     },

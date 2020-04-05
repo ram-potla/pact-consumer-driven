@@ -25,7 +25,7 @@ describe('api testing', () => {
     await provider.addInteraction(interactions.getEngineersList)
     const res = await consumerClient
       .get(`${baseUrl}`)
-      .set('Content-Type', 'application/json; charset=utf-8')
+      .set('Content-Type', 'application/json')
     expect(JSON.parse(res.text)).toEqual([
       {
         name: 'Ram',
@@ -42,7 +42,7 @@ describe('api testing', () => {
     }
     const res = await consumerClient
       .post(`${baseUrl}`)
-      .set('Content-Type', 'application/json; charset=utf-8')
+      .set('Content-Type', 'application/json')
       .send(payload)
       .expect(201)
     expect(JSON.parse(res.text)).toEqual({
