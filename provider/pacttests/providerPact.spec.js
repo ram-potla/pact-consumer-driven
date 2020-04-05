@@ -4,7 +4,7 @@ const { Verifier } = require('@pact-foundation/pact')
 const path = require('path')
 const database = require('../dbhelper')
 
-require('../../server.js')
+const server = require('../../server.js')
 describe('Pact Verification', () => {
   beforeAll(async () => {
     await database.deleteAllCollections()
@@ -13,7 +13,9 @@ describe('Pact Verification', () => {
   })
   afterEach(async () => await database.deleteAllCollections())
 
-  afterAll(async () => {})
+  afterAll(async () => {
+    process.kill(process.pid, 'SIGTERM')
+  })
 
   it('validates the expectations of EngineerService', async () => {
     let opts = {
@@ -28,8 +30,8 @@ describe('Pact Verification', () => {
     try {
       await new Verifier(opts).verifyProvider()
     } catch (error) {
-      console.log('failed', error)
-      // process.exit(1)
+      // eslint-disable-next-line no-console
+      console.error('failed', error)
     }
   })
 })

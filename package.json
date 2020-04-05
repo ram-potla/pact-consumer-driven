@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "test": "jest --i",
     "test:consumer": "npx jest --i consumer/test/consumerPact.spec.js",
-    "test:pact": "npx jest --i provider/pacttests/providerPact.spec.js"
+    "test:pact": "npx jest --i provider/pacttests/providerPact.spec.js --detectOpenHandles"
   },
   "author": "",
   "license": "ISC",
